@@ -20,6 +20,7 @@ Simplest example for a standard query "men's shoes", returning the Google SERP (
 // composer autoload
 require_once __DIR__ . '/../vendor/autoload.php';
 
+
 use hokode\SearchEngineCrawler\SearchEngine;
 
 $client = new SearchEngine();

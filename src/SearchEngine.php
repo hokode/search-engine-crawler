@@ -1,7 +1,6 @@
 <?php 
 
 namespace hokode\SearchEngineCrawler;
-require_once __DIR__ . '/helpers/simple_html_dom.php';
 
 class SearchEngine
 {

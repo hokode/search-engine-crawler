@@ -1,0 +1,24 @@
+{
+    "name": "hokode/search-engine-crawler",
+    "description": "A search engine crawler composer package",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "hokode\\SearchEngineCrawler\\": "src/"
+        },
+        "files": [
+            "src/helpers/simple_html_dom.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Henri Okode",
+            "email": "henri.okode@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.2.0"
+    }
+}

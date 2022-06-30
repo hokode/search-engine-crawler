@@ -25,7 +25,7 @@ use hokode\SearchEngineCrawler\SearchEngine;
 $client = new SearchEngine();
 
 //set search engine or defaults to google.com
-$client->setEngine('google.ae');
+$client->setEngine('google.com');
 //set search depth or defaults to 5
 $client->setDepth(10);
 

@@ -6,7 +6,7 @@ This PHP package allows you to scrape and parse Google Search Results.
 You can install search-engine-crawler with [Composer](https://getcomposer.org/).
 
 ```shell
-$ composer require hokode/search-engine-crawler
+$ composer require hokode/search-engine-crawler dev-master
 ```
 
 View package on [Packagist.com](https://packagist.org/packages/hokode/search-engine-crawler)
@@ -19,6 +19,7 @@ Simplest example for a standard query "men's shoes", returning the Google SERP (
 
 // composer autoload
 require_once __DIR__ . '/../vendor/autoload.php';
+
 
 use hokode\SearchEngineCrawler\SearchEngine;
 

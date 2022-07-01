@@ -14,7 +14,7 @@ $client->setEngine('google.com');
 $client->setDepth(10);
 
 //pass the key words
-$str = "men's shoes";
+$str = "";
 $arrstr = explode(" ",$str);
 
 $results = $client->search($arrstr);

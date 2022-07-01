@@ -98,7 +98,7 @@ class SearchEngine
       $response = curl_exec($curl);
       curl_close($curl);
 
-         $domResults = new simple_html_dom();
+         $domResults = new \simple_html_dom();
          $domResults->load($response);
 
          //flag support links
@@ -114,6 +114,7 @@ class SearchEngine
            
            if (!$titles->count()){
              $isAD = 1;
+             $title="";
            }else{
              $isAD = 0;
              $title = $titles->item(0)->nodeValue;

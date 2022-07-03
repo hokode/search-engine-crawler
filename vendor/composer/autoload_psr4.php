@@ -6,5 +6,6 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'hokode\\myErrorHandling\\' => array($baseDir . '/src/helpers'),
     'hokode\\SearchEngineCrawler\\' => array($baseDir . '/src'),
 );

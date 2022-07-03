@@ -2,13 +2,22 @@
 
 namespace hokode\SearchEngineCrawler;
 
+use hokode\myErrorHandling\Exceptions;
+
 class SearchEngine
 {
   
    //this function will get the search engine defined by user or default to google.com if none is set
    public function setEngine($str='google.com'){
          global $searchEngine;
+
+          //check if str is empty
+       if(empty($str)){
+         throw new Exceptions("Search Engine value cannot be empty");
+       }else{
          $searchEngine = $str;
+       }
+
       return $searchEngine;
    }
    
@@ -22,7 +31,14 @@ class SearchEngine
    //this function will set the serch depth or default to 5 if not set
    public function setDepth($depth=5){
        global $searchDepth;
-       $searchDepth = $depth;
+       //check if depth is an integer
+       if(is_int($depth) && $depth > 0){
+         $searchDepth = $depth;
+       }else{
+          throw new Exceptions("Depth must be an integer and greater than zero.");
+       }
+
+       
       return $searchDepth;
    }
    
@@ -38,15 +54,17 @@ class SearchEngine
      
       $searchEngine = $this->getSearchEngine();
       $searchDepth = $this->getsearchDepth();
-      
 
+      
       //initialise query
       $query ="";
+      
 
     //check if $keyywords is an array
        if(is_array($keywords)){
         //its an array get values and generate query search string
             $arrkeyslen = count($keywords);
+
 
             //loop through creating the search query 
                for ($x = 0; $x <= $arrkeyslen - 1; $x++) {
@@ -58,17 +76,22 @@ class SearchEngine
 
        }else{
         //not an array just one keyword supplied query has only one keyword
-        $query = $keywords;
+        //$query = $keywords; we need $keywords to come in as an array.
+           throw new Exceptions("Keywords must be provided and as an array");      
        }
 
             //Now loop through getting the content 
             $content = '';
 
-            for ($x = 0; $x <= $searchDepth; $x++) {
+            for ($x = 0; $x <= $searchDepth - 1; $x++) {
                $pages = $x * 10;
                //get content
                $content .= $this->getContent($searchEngine,$pages,$query); 
             }
+           
+            
+            //the unawanted } at the end of the string adding an empty array value :-)
+            $content = substr($content, 0, -1);
            
             //lets get our content into an array
             $results = array_map(
@@ -125,12 +148,16 @@ class SearchEngine
             //$description =$link->outertext;
             $linkurl = strtok(str_replace("/url?q=","", $link->href),'&');
             $keywords = str_replace('+', " ", $searchString);
+
             
             //lets ignore the support links
             if (in_array($acc_links, $blacklist)){
                //blacklisted ignore
             }else{
-               $content .= $title.'[]'.$linkurl.'[]'.$pages.'[]'.$isAD.'[]'.$keywords.'}';
+               //ensure we actually have content
+               
+                  $content .= $title.'[]'.$linkurl.'[]'.$pages.'[]'.$isAD.'[]'.$keywords.'}';
+                        
             }
          }
 

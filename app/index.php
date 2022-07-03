@@ -10,11 +10,11 @@ $client = new searchEngine();
 
 //set search engine or defaults to google.com
 $client->setEngine('google.com');
-//set search depth or defaults to 5
-$client->setDepth(10);
+//set search depth or defaults to 5 must be an integer
+$client->setDepth(1);
 
 //pass the key words
-$str = "";
+$str = "men's clothing";
 $arrstr = explode(" ",$str);
 
 $results = $client->search($arrstr);

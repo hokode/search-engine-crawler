@@ -13,11 +13,16 @@ class ComposerStaticInit8985923757d52ffb470dfd16f70cf5ba
     public static $prefixLengthsPsr4 = array (
         'h' => 
         array (
+            'hokode\\myErrorHandling\\' => 23,
             'hokode\\SearchEngineCrawler\\' => 27,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'hokode\\myErrorHandling\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/helpers',
+        ),
         'hokode\\SearchEngineCrawler\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',

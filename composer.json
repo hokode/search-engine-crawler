@@ -5,7 +5,8 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "hokode\\SearchEngineCrawler\\": "src/"
+            "hokode\\SearchEngineCrawler\\": "src/",
+            "hokode\\myErrorHandling\\": "src/helpers/"
         },
         "files": [
             "src/helpers/simple_html_dom.php"

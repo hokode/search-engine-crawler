@@ -116,13 +116,16 @@ class SearchEngine
 
       $curl = curl_init();
       curl_setopt($curl, CURLOPT_URL, $url);
-      //curl_setopt($curl, CURLOPT_FOLLOWLOCATION, false);
+      curl_setopt($curl, CURLOPT_FOLLOWLOCATION, false);
       curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
       $response = curl_exec($curl);
       curl_close($curl);
 
+
          $domResults = new \simple_html_dom();
          $domResults->load($response);
+
+    
 
          //flag support links
           $blacklist = array('157','1605');
@@ -132,6 +135,7 @@ class SearchEngine
            //lets work on the sections
            $doc = new \DOMDocument;
            $doc->loadHTML($link->outertext);
+
            $titles = $doc->getElementsByTagName('h3');
            //$descriptions = $doc->getElementsByTagName('span dir');
            
@@ -160,6 +164,9 @@ class SearchEngine
                         
             }
          }
+         
+         //lets ensure we always have content 
+         if(empty($content)){ throw new Exceptions("Invalid or unsupported url supplied.");}
 
     return $content;
    }

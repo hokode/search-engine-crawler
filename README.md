@@ -9,7 +9,7 @@ You can install search-engine-crawler with [Composer](https://getcomposer.org/).
 $ composer require hokode/search-engine-crawler dev-master
 ```
 
-or you can add the package to your composer.json then composer install
+or you can add the package to your composer.json then `composer install`
 
 ```shell
   "require": {

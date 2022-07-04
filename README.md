@@ -1,6 +1,6 @@
 # Google Search Engine Crawler
 
-This PHP package allows you to scrape and parse Google Search Results.
+This PHP package allows you to scrape and parse Google Search Results.Package does not use or require GoogleAPIs integration.
 
 ## Installation
 You can install search-engine-crawler with [Composer](https://getcomposer.org/).
@@ -30,7 +30,7 @@ $client->setEngine('google.com');
 //set search depth or defaults to 5
 $client->setDepth(10);
 
-$results = $client->search(['mens','shoes']);
+$results = $client->search(['sports','news']);
 
 print_r($results);
 
@@ -45,81 +45,65 @@ Array
 (
     [0] => Array
         (
-            [0] => Men's Shoes UAE | 30-75% OFF | Dubai, Abu Dhabi - Noon
-            [1] => https://www.noon.com/uae-en/fashion/men-31225/shoes-17421/
-            [2] => 0
-            [3] => 0
-            [4] => men's shoes
+            [title] => Sports News - The Indian Express
+            [url] => https://indianexpress.com/section/sports/
+            [rank] => 0
+            [ad] => 0
+            [keywords] => sports news
         )
 
     [1] => Array
         (
-            [0] => Men's Shoes UAE | 30-75% OFF | Dubai, Abu Dhabi - Noon
-            [1] => https://www.noon.com/uae-en/fashion/men-31225/shoes-17421/formal-shoes-20899/
-            [2] => 0
-            [3] => 1
-            [4] => men's shoes
+            [title] => NDTV Sports: Latest Sports News, Live Scores, Results Today's ...
+            [url] => https://sports.ndtv.com/
+            [rank] => 0
+            [ad] => 0
+            [keywords] => sports news
         )
 
     [2] => Array
         (
-            [0] => Men's Shoes UAE | 30-75% OFF | Dubai, Abu Dhabi - Noon
-            [1] => https://www.noon.com/uae-en/fashion/men-31225/shoes-17421/nike/
-            [2] => 0
-            [3] => 1
-            [4] => men's shoes
+            [title] => Latest Cricket News, Live Match Scores & Sports ... - Times of India
+            [url] => https://timesofindia.indiatimes.com/sports
+            [rank] => 0
+            [ad] => 0
+            [keywords] => sports news
         )
 
     [3] => Array
         (
-            [0] => Men's Shoes UAE | 30-75% OFF | Dubai, Abu Dhabi - Noon
-            [1] => https://www.noon.com/uae-en/fashion/men-31225/shoes-17421/adidas/
-            [2] => 0
-            [3] => 1
-            [4] => men's shoes
+            [title] => Sky Sports - Sports News, Transfers, Scores | Watch Live Sport
+            [url] => https://www.skysports.com/
+            [rank] => 0
+            [ad] => 0
+            [keywords] => sports news
         )
 
     [4] => Array
         (
-            [0] => Men's Shoes UAE | 30-75% OFF | Dubai, Abu Dhabi - Noon
-            [1] => https://www.noon.com/uae-en/fashion/men-31225/shoes-17421/vans/
-            [2] => 0
-            [3] => 1
-            [4] => men's shoes
+            [title] => Sports News, Latest Sports News, Sports News Headlines Today
+            [url] => https://www.hindustantimes.com/sports
+            [rank] => 0
+            [ad] => 0
+            [keywords] => sports news
         )
 
     [5] => Array
         (
-            [0] => Shop Men's Shoes, Bags & More Online | Shoemart UAE
-            [1] => https://www.shoemartstores.com/ae/en/department/men
-            [2] => 0
-            [3] => 0
-            [4] => men's shoes
+            [title] => Sports News, Latest Sports Updates, Cricket World ... - India Today
+            [url] => https://www.indiatoday.in/sports
+            [rank] => 0
+            [ad] => 0
+            [keywords] => sports news
         )
 
-    [6] => Array
-        (
-            [0] => Buy Shoes For Men online at Best Prices in UAE - Amazon.ae
-            [1] => https://www.amazon.ae/Men-Shoes/b%3Fie%3DUTF8%26node%3D11995876031
-            [2] => 0
-            [3] => 0
-            [4] => men's shoes
-        )
+
 
 )
 
 ```
 
-## Array Fields Explained 
 
-```array
-            [0] => Explore casual men's shoes | Official ECCO® store <----------------------title
-            [1] => https://us.ecco.com/men/shoes/casual-shoes/ <---------------------- url
-            [2] => 100 <---------------------- ranking
-            [3] => 0 <----------------------Ad, 0 No, 1 Yes
-            [4] => men's shoes <-------------------- keywords
-
-?>
-```
-
+## Search Engines Supported
+google.* (where * can be ae,ke,com etc).
 

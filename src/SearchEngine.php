@@ -96,7 +96,13 @@ class SearchEngine
             //lets get our content into an array
             $results = array_map(
                function ($substr) {
-                   return explode('[]', $substr);
+                  $convert_to_arr = explode('[]', $substr);
+                  
+                for($i=0; $i < count($convert_to_arr ); $i++){
+                     $key_value = explode('*', $convert_to_arr [$i]);
+                     $end_array[$key_value [0]] = $key_value [1];
+                 }
+                   return $end_array;
                }, 
                explode('}', $content)
            );
@@ -160,7 +166,7 @@ class SearchEngine
             }else{
                //ensure we actually have content
                
-                  $content .= $title.'[]'.$linkurl.'[]'.$pages.'[]'.$isAD.'[]'.$keywords.'}';
+                  $content .= 'title*'.$title.'[]url*'.$linkurl.'[]rank*'.$pages.'[]ad*'.$isAD.'[]keywords*'.$keywords.'}';
                         
             }
          }

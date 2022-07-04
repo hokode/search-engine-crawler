@@ -50,7 +50,7 @@ class SearchEngine
 
 
    /**This function will search as per the array of keywords supplied**/
-   public function search($keywords){
+   public function search(array $keywords){
      
       $searchEngine = $this->getSearchEngine();
       $searchDepth = $this->getsearchDepth();

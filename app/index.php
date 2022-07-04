@@ -13,10 +13,6 @@ $client->setEngine('google.ae');
 //set search depth or defaults to 5 must be an integer
 $client->setDepth(1);
 
-//pass the key words
-$str = "men's clothing";
-$arrstr = explode(" ",$str);
-
-$results = $client->search($arrstr);
+$results = $client->search(['mens','shoes']);
 
 print_r($results);

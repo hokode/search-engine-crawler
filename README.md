@@ -13,7 +13,7 @@ View package on [Packagist.com](https://packagist.org/packages/hokode/search-eng
 
 
 ## Simple Example
-Simplest example for a standard query "men's shoes", returning the Google SERP (Search Engine Results Page) data as an array.
+Simplest example for a standard query "mens shoes", returning the Google SERP (Search Engine Results Page) data as an array.
 ```php
 <?php
 
@@ -30,11 +30,7 @@ $client->setEngine('google.com');
 //set search depth or defaults to 5
 $client->setDepth(10);
 
-//pass the key words
-$str = "men's shoes";
-$arrstr = explode(" ",$str);
-
-$results = $client->search($arrstr);
+$results = $client->search(['mens','shoes']);
 
 print_r($results);
 

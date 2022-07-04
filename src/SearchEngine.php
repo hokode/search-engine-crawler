@@ -158,17 +158,23 @@ class SearchEngine
             //$description =$link->outertext;
             $linkurl = strtok(str_replace("/url?q=","", $link->href),'&');
             $keywords = str_replace('+', " ", $searchString);
-
             
-            //lets ignore the support links
-            if (in_array($acc_links, $blacklist)){
-               //blacklisted ignore
-            }else{
-               //ensure we actually have content
-               
-                  $content .= 'title*'.$title.'[]url*'.$linkurl.'[]rank*'.$pages.'[]ad*'.$isAD.'[]keywords*'.$keywords.'}';
+               //check for account..support links
+               if(strpos($linkurl,'accounts.google') || strpos($linkurl,'support.google')){
+                  //ignore
+               }else{
+
+                        //lets ignore blacklist
+                     if (in_array($acc_links, $blacklist)){
+                        //blacklisted ignore
+                     }else{
                         
-            }
+                           $content .= 'title*'.$title.'[]url*'.$linkurl.'[]rank*'.$pages.'[]ad*'.$isAD.'[]keywords*'.$keywords.'}';  
+                                 
+                     }
+
+               }
+
          }
          
          //lets ensure we always have content 
